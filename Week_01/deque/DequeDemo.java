@@ -1,7 +1,5 @@
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Stack;
 
 public class DequeDemo {
 
@@ -27,7 +25,6 @@ public class DequeDemo {
             System.out.println(deque.pop());
         }
         System.out.println(deque);
-        Stack
     }
 
     /**
