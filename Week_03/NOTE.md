@@ -37,6 +37,20 @@ public void recur(int level, int param) {
 }
 ```
 
+### 树的遍历
+- 深度优先：前、中、后序遍历，其实就是根节点处理跟子节点的前后关系
+- 广度优先
+
+代码模板：
+```python
+def traverse(TreeNode root):
+    print('前序遍历的' + root.val)
+    traverse(root.left)
+    print('中序遍历的' + root.val)
+    traverse(root.right)
+    print('后序遍历的' + root.val)
+```
+
 ## 分治
 - 分治是一种思想，通常是把一个大问题分解成为很多个小问题去解决，然后合并结果
 - 它本身是运用到了递归的，所以它的代码模板跟递归有点像
