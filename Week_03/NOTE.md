@@ -135,3 +135,13 @@ for 选择 in 选择列表:
 <img src="https://pic.leetcode-cn.com/d3feae35b7d1d6c9e5a48230d200c2b27106b53abb57fbd244a1fd549416b400-file_1575263105333" width="400px">
 
 参考：https://leetcode-cn.com/problems/n-queens/solution/hui-su-suan-fa-xiang-jie-by-labuladong
+
+## 心得
+
+最近练习了很多dfs、bfs、递归的代码，从一开始的 无从下手 到后面的 得心应手。
+
+特别感谢超哥的方法，真的是七分靠练习啊！模板一熟练，很多此类题目，写起来会非常顺手。
+
+自己感觉到比较难的，一定要重复做，不然很难提高的。第一遍会了，不代表真的会了，特别是那种照着别人的代码写的，不重复做，过几天可能就只记得做过这道题了。
+
+不知不觉已经坚持快一个月了，加油！
