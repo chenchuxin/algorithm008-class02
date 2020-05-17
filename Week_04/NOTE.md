@@ -75,3 +75,33 @@ def BFS(graph, start, end):
 	# other processing work 
 	...
 ```
+
+# 贪心算法
+- 当下做局部最优判断，不能回退
+- 用贪心算法之前，一定要确认，局部最优，是否代表这全局最优
+- 一旦判断可以用贪心算法，通常都能以很简洁又高性能的代码
+- 贪心算法虽然可能结果不对，但是通常来说会比较接近正确答案，如果对结果要求不高，可以用贪心算法辅助计算
+
+# 二分查找
+- 二分查找指的是，从一个有序的序列中，每次从中间拿出一个数跟目标数字对比而收敛目标位置的方法
+- 二分查找的前提
+    - 目标序列的有序性(否则无法收敛)
+    - 存在上下界(否则无法求中间数)
+    - 能够通过索引访问(否则定位中间数所需的复杂度高)
+
+二分查找的代码模板
+- 注意数字的溢出
+```python
+def search(array):
+    left, right = 0, len(array) - 1 
+    while left <= right: 
+        # mid = (left + right) / 2 可能 int 会溢出
+        mid = left + (right - left) / 2 
+        if array[mid] == target: 
+            # find the target!! 
+            break or return result 
+        elif array[mid] < target: 
+            left = mid + 1 
+        else: 
+            right = mid - 1
+```
