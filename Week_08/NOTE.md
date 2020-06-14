@@ -105,3 +105,50 @@ class Solution:
             nums[0], nums[minIndex] = nums[minIndex], nums[0]
         return nums
 ```
+
+### 插入排序
+- 两层循环
+- 当前元素跟前一个元素比较，如果小于前一个元素，交换。直到比前一个元素大或者是第一个元素了。
+- 每次遍历都会把当前索引之前的数排序好
+
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        for i in range(1, len(nums)):
+            pre = i - 1
+            cur = i
+            while cur > 0 and nums[pre] > nums[cur]:
+                nums[pre], nums[cur] = nums[cur], nums[pre]
+                pre -= 1
+                cur -= 1
+        return nums
+```
+
+### 归并排序
+- 将数组分成两个子数组
+- 左右各采用归并排序（如果个数大于1，则继续分）
+- 将左右排序好的数组合并
+
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        def merge(nums1, nums2):
+            len1 = len(nums1); len2 = len(nums2)
+            res = []
+            idx1 = 0; idx2 = 0
+            while idx1 < len1 and idx2 < len2:
+                if nums1[idx1] <= nums2[idx2]:
+                    res.append(nums1[idx1])
+                    idx1 += 1
+                else:
+                    res.append(nums2[idx2])
+                    idx2 += 1
+            if idx1 < len1: res += nums1[idx1:]
+            if idx2 < len2: res += nums2[idx2:]
+            return res
+
+        if len(nums) <= 1: return nums
+        mid = len(nums) // 2
+        left = nums[:mid]; right = nums[mid:]
+        return merge(self.sortArray(left), self.sortArray(right))
+```
