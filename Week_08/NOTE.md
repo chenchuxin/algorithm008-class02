@@ -111,6 +111,9 @@ class Solution:
 - 当前元素跟前一个元素比较，如果小于前一个元素，交换。直到比前一个元素大或者是第一个元素了。
 - 每次遍历都会把当前索引之前的数排序好
 
+缺点：
+- 合并的时候需要需要额外的空间
+
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
@@ -151,4 +154,30 @@ class Solution:
         mid = len(nums) // 2
         left = nums[:mid]; right = nums[mid:]
         return merge(self.sortArray(left), self.sortArray(right))
+```
+
+### 快速排序
+- 从数组中挑一个元素作为基准（pivot），通常我们拿第一个
+- 把所有小于基准的元素放到左边，所有大于基准的放右边，相等的随便放哪一边都行。此操作成为分区（partition），方法会返回最终基准的位置
+- 根据基准的位置，分成左边和右边继续递归
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        def partition(left, right):
+            pivot = left; border = left + 1
+            for i in range(border, right + 1):
+                if nums[i] < nums[pivot]:
+                    nums[i], nums[border] = nums[border], nums[i]
+                    border += 1
+            nums[pivot], nums[border - 1] = nums[border - 1], nums[pivot]
+            return border - 1
+        
+        def querySort(left, right):
+            if left >= right: return
+            border = partition(left, right)
+            querySort(left, border - 1)
+            querySort(border + 1, right)
+        
+        querySort(0, len(nums) - 1)
+        return nums
 ```
